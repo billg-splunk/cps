@@ -14,7 +14,7 @@ COPY start.sh .
 COPY main.py .
 
 # Bootstrap OTel
-#RUN splunk-py-trace-bootstrap
+RUN splunk-py-trace-bootstrap
 
 # Set the entrypoint command to run the application
 #CMD ["splunk-py-trace", "python3", "main.py"]
