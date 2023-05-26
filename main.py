@@ -1,6 +1,13 @@
 import logging
 from flask import Flask, request
 from waitress import serve
+from splunk_otel.tracing import start_tracing
+
+start_tracing(
+    service_name='creditprocessorservice',
+    resource_attributes={
+        'service.version': '3.1'
+    })
 
 app = Flask(__name__)
 
