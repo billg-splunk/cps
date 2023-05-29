@@ -20,11 +20,11 @@ def credit_check_ok():
     else:
         return 'NO'
 
-@app.route('/get_credit_score')
+@app.route('/getScore')
 def get_credit_score():
-    location = request.args.get('location')
-    credit_score = get_credit_score_by_location(location)
-    return str(credit_score)
+    location = request.args.get('customernum')
+    #credit_score = get_credit_score_by_location(location)
+    return str('150')
 
 def get_credit_score_by_location(location):
     if location == 'USA':
