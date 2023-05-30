@@ -1,5 +1,6 @@
 import logging
 import random
+import time
 from flask import Flask, request
 from waitress import serve
 
@@ -24,11 +25,16 @@ def get_credit_score():
     score = random.randrange(250, 850, 1)
     if score < 300:
         score = -1
+    
+    if score >= 300 and score < 670:
+        addDelays()
 
     #credit_score = get_credit_score_by_location(location)
     return str(score)
 
-#def addDelays(customernum):
+def addDelays():
+    length = random.randrange(2,5)
+    time.sleep(length)
 
 
 if __name__ == '__main__':
