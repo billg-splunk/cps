@@ -12,14 +12,14 @@ def test_it():
 @app.route('/getScore')
 def get_credit_score():
     customernum = request.args.get('customernum')
-    // Last number =
-    // 0-5 = Normal
-    // 6, 7, 8 = Feature Flags
-    // 9 = HipsterCard txns
-    // Issues/Processes:
-    // - Errors on feature flag 7 or credit scores not between 300-850
-    // - Delays on transactions where credit score is 300-670
-    // - HipsterCard txns will have a callout to another 3rd party inferred service
+    # Last number =
+    # 0-5 = Normal
+    # 6, 7, 8 = Feature Flags
+    # 9 = HipsterCard txns
+    # Issues/Processes:
+    # - Errors on feature flag 7 or credit scores not between 300-850
+    # - Delays on transactions where credit score is 300-670
+    # - HipsterCard txns will have a callout to another 3rd party inferred service
 
     score = random.randrage(250, 850, 1)
     if score < 300:
