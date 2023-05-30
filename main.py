@@ -1,4 +1,5 @@
 import logging
+import random
 from flask import Flask, request
 from waitress import serve
 
@@ -20,7 +21,7 @@ def get_credit_score():
     # - Delays on transactions where credit score is 300-670
     # - HipsterCard txns will have a callout to another 3rd party inferred service
 
-    score = random.randrage(250, 850, 1)
+    score = random.randrange(250, 850, 1)
     if score < 300:
         score = -1
 
