@@ -1,46 +1,35 @@
 import logging
+import random
 from flask import Flask, request
 from waitress import serve
 
 app = Flask(__name__)
 
-@app.route('/')
-def hello():
-    return 'Hello there'
-
 @app.route('/test')
 def test_it():
     return 'OK'
     
-@app.route('/credit_check_ok')
-def credit_check_ok():
-    location = request.args.get('location')
-    if credit_check_passes(location):
-        return 'YES'
-    else:
-        return 'NO'
-
 @app.route('/getScore')
 def get_credit_score():
-    location = request.args.get('customernum')
+    customernum = request.args.get('customernum')
+    // Last number =
+    // 0-5 = Normal
+    // 6, 7, 8 = Feature Flags
+    // 9 = HipsterCard txns
+    // Issues/Processes:
+    // - Errors on feature flag 7 or credit scores not between 300-850
+    // - Delays on transactions where credit score is 300-670
+    // - HipsterCard txns will have a callout to another 3rd party inferred service
+
+    score = random.randrage(250, 850, 1)
+    if score < 300:
+        score = -1
+
     #credit_score = get_credit_score_by_location(location)
-    return str('150')
+    return str(score)
 
-def get_credit_score_by_location(location):
-    if location == 'USA':
-        return 750
-    elif location == 'Canada':
-        return 800
-    elif location == 'England':
-        return 850
-    elif location == 'France':
-        return 550
-    else:
-        return 700
+#def addDelays(customernum):
 
-def credit_check_passes(location):
-    if location == 'France':
-        return False
 
 if __name__ == '__main__':
     serve(app, port=8899)
