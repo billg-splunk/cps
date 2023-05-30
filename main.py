@@ -1,5 +1,4 @@
 import logging
-import random
 from flask import Flask, request
 from waitress import serve
 
