@@ -20,20 +20,22 @@ def get_credit_score():
     # Issues/Processes:
     # - Errors on feature flag 7 or credit scores not between 300-850
     # - Delays on transactions where credit score is 300-670
-    # - HipsterCard txns will have a callout to another 3rd party inferred service
 
     score = random.randrange(250, 850, 1)
     if score < 300:
         score = -1
     
-    if score >= 300 and score < 670:
+    if score >= 300 and score < 580:
         addDelays()
 
-    #credit_score = get_credit_score_by_location(location)
+    last_digit = int( str( customernum )[-1] )
+
+    #if last_digit == 7 or score == -1:
+
     return str(score)
 
 def addDelays():
-    length = random.randrange(2,5)
+    length = random.randrange(2,4)
     time.sleep(length)
 
 
