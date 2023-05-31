@@ -39,9 +39,10 @@ def run_credit_check():
     customernum = request.args.get('customernum')
     creditscore = request.args.get('score')
 
-    last_digit = int( str( customernum )[-1] )
+    iLastDigit = int( str( customernum )[-1] )
+    iScore = int( creditscore )
 
-    if last_digit == 7 or creditscore < 300:
+    if iLastDigit == 7 or iScore < 300:
         requests.get("http://creditcheckextra:777/extra?customernum=" + customernum)
     
     return "OK"
