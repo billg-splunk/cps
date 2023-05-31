@@ -12,8 +12,8 @@ app = Flask(__name__)
 # 6, 7, 8 = Feature Flags
 # 9 = HipsterCard txns
 # Issues/Processes:
-# - Errors on feature flag 7 or credit scores not between 300-850
-# - Delays on transactions where credit score is 300-580
+# - Errors on credit scores not between 300-850
+# - Delays on transactions where credit score is 300-580 (poor)
 
 @app.route('/test')
 def test_it():
@@ -42,7 +42,7 @@ def run_credit_check():
     iLastDigit = int( str( customernum )[-1] )
     iScore = int( creditscore )
 
-    if iLastDigit == 7 or iScore < 300:
+    if iScore < 300:
         requests.get("http://creditcheckextra:777/extra?customernum=" + customernum)
     
     return "OK"
