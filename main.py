@@ -34,7 +34,7 @@ def addDelays():
     length = random.randrange(2,4)
     time.sleep(length)
 
-@app.route('runCreditCheck')
+@app.route('/runCreditCheck')
 def run_credit_check():
     customernum = request.args.get('customernum')
     creditscore = request.args.get('score')
