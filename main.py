@@ -41,6 +41,9 @@ def run_credit_check():
 
     iLastDigit = int( str( customernum )[-1] )
     iScore = int( creditscore )
+    
+    if iLastDigit == 7 and iScore >= 800
+        time.sleep(5)
 
     if iScore < 300:
         requests.get("http://creditcheckextra:777/extra?customernum=" + customernum)
