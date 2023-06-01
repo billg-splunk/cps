@@ -46,7 +46,7 @@ def run_credit_check():
         time.sleep(5)
 
     if iScore < 300:
-        requests.get("http://creditcheckextra:777/extra?customernum=" + customernum)
+        requests.get("http://otherservice:777/extra?customernum=" + customernum)
     
     return "OK"
 
